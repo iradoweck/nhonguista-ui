@@ -9,11 +9,12 @@ use Illuminate\Notifications\Notifiable;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasUuids, SoftDeletes;
+    use HasFactory, Notifiable, HasUuids, SoftDeletes, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -28,7 +29,14 @@ class User extends Authenticatable
         'password',
         'avatar',
         'is_active',
+        'is_verified',
+        'verification_status',
     ];
+
+    public function verifications()
+    {
+        return $this->hasMany(Verification::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

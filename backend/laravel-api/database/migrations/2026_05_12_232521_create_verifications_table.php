@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('verifications', function (Blueprint $table) {
             $table->id();
+            $table->uuid('user_id');
+            $table->string('document_type')->default('BI'); // BI, NUIT
+            $table->string('document_number');
+            $table->string('document_path')->nullable(); // caminho do upload
+            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
+            $table->text('admin_notes')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
