@@ -38,6 +38,51 @@ class User extends Authenticatable
         return $this->hasMany(Verification::class);
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'user_roles')
+                    ->withPivot('assigned_at')
+                    ->withTimestamps();
+    }
+
+    public function hasRole($roleSlug)
+    {
+        return $this->roles->contains('slug', $roleSlug);
+    }
+
+    public function assignRole($roleSlug)
+    {
+        $role = Role::where('slug', $roleSlug)->first();
+        if ($role && !$this->hasRole($roleSlug)) {
+            $this->roles()->attach($role->id);
+        }
+    }
+
+    public function providerProfile()
+    {
+        return $this->hasOne(ProviderProfile::class);
+    }
+
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
+
+    public function reviewsWritten()
+    {
+        return $this->hasMany(Review::class, 'reviewer_id');
+    }
+
+    public function contactsInitiated()
+    {
+        return $this->hasMany(Contact::class, 'client_id');
+    }
+
+    public function contactsReceived()
+    {
+        return $this->hasMany(Contact::class, 'provider_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

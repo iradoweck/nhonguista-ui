@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -16,21 +18,30 @@ class AuthController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:users',
             'phone' => 'required|string|unique:users',
             'password' => 'required|string|min:6',
+            'role' => 'sometimes|string|in:client,provider'
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'password' => Hash::make($request->password),
-            'is_active' => true,
-        ]);
+        return DB::transaction(function () use ($request) {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'password' => Hash::make($request->password),
+                'is_active' => true,
+            ]);
 
-        return response()->json([
-            'user' => $user,
-            'token' => $user->createToken('auth_token')->plainTextToken,
-        ], 201);
+            // Assign role
+            $roleSlug = $request->role ?? 'client';
+            $user->assignRole($roleSlug);
+
+            return response()->json([
+                'user' => $user->load('roles'),
+                'token' => $user->createToken('auth_token')->plainTextToken,
+            ], 201);
+        });
     }
 
     /**
@@ -52,7 +63,7 @@ class AuthController extends Controller
         }
 
         return response()->json([
-            'user' => $user,
+            'user' => $user->load('roles'),
             'token' => $user->createToken('auth_token')->plainTextToken,
         ]);
     }
@@ -62,7 +73,7 @@ class AuthController extends Controller
      */
     public function me(Request $request)
     {
-        return response()->json($request->user());
+        return response()->json($request->user()->load('roles'));
     }
 
     /**

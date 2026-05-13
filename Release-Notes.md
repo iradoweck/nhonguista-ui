@@ -36,10 +36,15 @@ O primeiro grande ciclo de desenvolvimento (Fases 1 a 3) estabeleceu a infraestr
   - Construído um layout escalável em `apps/admin/src/app/page.tsx` com navegação lateral (Sidebar) dedicada à moderação de serviços, profissionais e verificações.
   - Incluídos widgets estáticos de métricas financeiras/operacionais e tabelas de verificações recentes.
 
-### 🔧 Outras Alterações Técnicas Notáveis
-- Transição da configuração `pipeline` para `tasks` no `turbo.json` atendendo às normas do Turborepo 2.0+.
-- Configuração `.env` agnóstica para usar **SQLite** no ambiente local por padrão, simplificando o processo de testes e o setup inicial de novos desenvolvedores sem dependência de Docker.
-- **Limpeza do Monorepo:** Remoção do pacote boilerplate padrão (`apps/web`) para evitar conflitos de portas, estabelecendo o roteamento correto onde a Landing Page assume a porta `:3000` e o Admin Dashboard a porta `:3001` no ambiente de desenvolvimento local.
+### 🏗️ Integração Completa & Marketplace Dinâmico (Actualização)
+- **Multi-Role System**: Implementada a arquitetura que permite um utilizador ser simultaneamente Cliente e Prestador via tabela pivot `user_roles`.
+- **Backend Relacional Robusto**: Modelagem completa de `services`, `reviews`, `categories` (com ícones Lucide) e `contacts` com suporte a UUIDs em todas as tabelas para segurança e escalabilidade.
+- **Lead Tracking System**: Implementado sistema de tracking que regista interacções na base de dados (`contacts`) antes do redireccionamento para o WhatsApp, permitindo auditoria de conversão.
+- **Marketplace Dinâmico (Next.js)**:
+    - **Homepage**: Reconstrução com Hero de alta conversão, pesquisa funcional e secção de serviços em destaque.
+    - **Auth Flow**: Implementado `AuthContext` com persistência de token e páginas de Login/Registo personalizadas.
+    - **Filtros & Navegação**: Sistema de filtragem por categorias e pesquisa textual integrado com a API paginada do Laravel.
+- **Seeders de Produção**: Inclusão de dados realistas de Nampula (Serviços em Mutauanha, Muhala, Centro) para validação do MVP.
 
 ---
 

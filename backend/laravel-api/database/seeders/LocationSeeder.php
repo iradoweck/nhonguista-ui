@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Location;
 use Illuminate\Database\Seeder;
+use App\Models\Location;
 
 class LocationSeeder extends Seeder
 {
@@ -12,22 +12,19 @@ class LocationSeeder extends Seeder
      */
     public function run(): void
     {
-        Location::create([
-            'city' => 'Nampula',
-            'province' => 'Nampula',
-            'neighborhood' => 'Muhala',
-        ]);
+        $locations = [
+            ['name' => 'Nampula - Cidade (Centro)', 'slug' => 'nampula-centro'],
+            ['name' => 'Muhala', 'slug' => 'muhala'],
+            ['name' => 'Muatala', 'slug' => 'muatala'],
+            ['name' => 'Namutequeliua', 'slug' => 'namutequeliua'],
+            ['name' => 'Natikiri', 'slug' => 'natikiri'],
+            ['name' => 'Napipine', 'slug' => 'napipine'],
+            ['name' => 'Marrere', 'slug' => 'marrere'],
+            ['name' => 'Carrupeia', 'slug' => 'carrupeia'],
+        ];
 
-        Location::create([
-            'city' => 'Nampula',
-            'province' => 'Nampula',
-            'neighborhood' => 'Napipine',
-        ]);
-
-        Location::create([
-            'city' => 'Nampula',
-            'province' => 'Nampula',
-            'neighborhood' => 'Namutequeliua',
-        ]);
+        foreach ($locations as $location) {
+            Location::updateOrCreate(['slug' => $location['slug']], $location);
+        }
     }
 }

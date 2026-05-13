@@ -13,13 +13,18 @@ class AdminUserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'name' => 'Edmilson Muacigarro',
-            'username' => 'admin',
-            'email' => 'admin@nhonguista.co.mz',
-            'phone' => '+258800000000',
-            'password' => Hash::make('password123'),
-            'is_active' => true,
-        ]);
+        $admin = User::updateOrCreate(
+            ['email' => 'admin@nhonguista.co.mz'],
+            [
+                'name' => 'Edmilson Muacigarro',
+                'username' => 'admin',
+                'phone' => '+258840000000',
+                'password' => Hash::make('password123'),
+                'is_active' => true,
+            ]
+        );
+
+        $admin->assignRole('admin');
+        $admin->assignRole('client'); // Admins can also be clients
     }
 }
