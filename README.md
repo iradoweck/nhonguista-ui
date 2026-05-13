@@ -4,6 +4,7 @@
   <img src="https://img.shields.io/badge/Status-Fase%_3_Valida%C3%A7%C3%A3o-orange?style=for-the-badge" alt="Status">
   <img src="https://img.shields.io/badge/Regi%C3%A3o-Nampula%2C%20Mo%C3%A7ambique-black?style=for-the-badge" alt="Região">
   <img src="https://img.shields.io/badge/Vers%C3%A3o-v0.1.0-blue?style=for-the-badge" alt="Versão">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/Licen%C3%A7a-Open%20Core%20(Dual)-green?style=for-the-badge" alt="Licença"></a>
 </p>
 
 ---
@@ -81,8 +82,13 @@ pnpm dev
 A comunidade é bem-vinda para ajudar a evoluir a **UI** e a **Landing Page**. 
 Leia nosso [CONTRIBUTING.md](CONTRIBUTING.md) para entender como as PRs funcionam na branch `devlab`, as regras de *Tags*, e nossos Padrões de Commit em Português.
 
+Por favor, garanta que suas interações seguem nosso [Código de Conduta (CODE_OF_CONDUCT.md)](CODE_OF_CONDUCT.md).
+
 - [Reportar um Bug](../../issues/new?template=bug_report.md)
 - [Sugerir Melhoria](../../issues/new?template=feature_request.md)
+
+### 🔒 Política de Segurança
+Pesquisadores de segurança: Se encontrarem vulnerabilidades no nosso Backend ou Painel Administrativo, **NÃO** abram Issues públicas. Confiram nosso arquivo [SECURITY.md](SECURITY.md) para instruções de reporte confidencial.
 
 ---
 

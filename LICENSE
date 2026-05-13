@@ -1,0 +1,32 @@
+# Nhonguista - Licença e Termos de Uso (Open Core)
+
+Direitos Autorais (c) 2026 Irmãos Muacigarro & ZEDECK'S IT. Todos os direitos reservados.
+
+O ecossistema **Nhonguista** opera sob um modelo **Open Core**. Diferentes partes deste repositório Monorepo (gerenciado pelo Turborepo) estão sujeitas a diferentes licenciamentos e permissões:
+
+## 1. Módulos Open Source (Licença MIT)
+Os seguintes diretórios são distribuídos como código aberto sob a licença **MIT**:
+- `/packages/ui` (Design System Shadcn/Radix)
+- `/apps/landing` (Portal Institucional e de Conversão)
+
+### Termos da Licença MIT para os Módulos Open Source:
+Por meio deste documento, é concedida permissão, gratuitamente, a qualquer pessoa que obtenha uma cópia do software listado na Seção 1 (os "Módulos Open Source"), para lidar no Software sem restrição, incluindo sem limitação os direitos de usar, copiar, modificar, mesclar, publicar, distribuir, sublicenciar e/ou vender cópias do Software, e permitir que as pessoas a quem o Software é fornecido o façam, sujeito às seguintes condições:
+
+O aviso de copyright acima e este aviso de permissão devem ser incluídos em todas as cópias ou partes substanciais do Software.
+
+## 2. Módulos Comerciais e Proprietários (Código Fechado / Uso Restrito)
+Os seguintes diretórios constituem a Propriedade Intelectual Comercial (Core) do Nhonguista e possuem **TODOS OS DIREITOS RESERVADOS**:
+- `/backend/laravel-api` (Regras de Negócio, API, Configurações de Banco de Dados e Notificações)
+- `/apps/admin` (Painel de Administração, Moderação e Métricas)
+
+### Termos para os Módulos Proprietários:
+O código-fonte listado na Seção 2 é disponibilizado apenas para fins de visualização, auditoria de segurança ou colaboração expressamente autorizada dentro do repositório oficial (`devlab`). 
+**NÃO É PERMITIDO:**
+1. Copiar, distribuir, modificar, sublicenciar ou vender o código-fonte da Seção 2.
+2. Utilizar o backend ou o painel de administração para prover serviços concorrentes ou hospedagem privada sem a autorização expressa e por escrito dos Irmãos Muacigarro & ZEDECK'S IT.
+3. Extrair trechos da lógica de negócio para utilização em outros softwares comerciais ou não-comerciais.
+
+Qualquer uso do código da Seção 2 fora do escopo do repositório oficial do Nhonguista sem autorização prévia por escrito constitui violação de direitos autorais.
+
+---
+Para dúvidas comerciais, parceiras ou solicitações de licença estendida para o core do sistema, entre em contato com os **Irmãos Muacigarro & ZEDECK'S IT**.
