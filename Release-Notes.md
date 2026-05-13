@@ -1,51 +1,30 @@
-# Release Notes - Nhonguista
+# 📓 Notas de Lançamento - Nhonguista
 
-## v0.1.0 - MVP Foundation & Core Features (Alpha)
-**Data:** 13 de Maio de 2026
+## [1.0.0-alpha] — 13 de Maio de 2026
+> **Foco:** Consolidação da Fundação Backend e Marketplace Dinâmico.
 
-O primeiro grande ciclo de desenvolvimento (Fases 1 a 3) estabeleceu a infraestrutura do ecossistema Nhonguista, focada em performance, escalabilidade e na experiência de conversão direta (WhatsApp-First) no mercado de Nampula.
+### ✨ Novas Funcionalidades (MVP)
+- **Sistema Multi-Perfil**: Gestão unificada onde um utilizador pode alternar entre contratar serviços (Cliente) e oferecer competências (Nhonguista).
+- **Lead Tracking (WhatsApp-First)**: Monitorização de conversão em tempo real. Cada clique para o WhatsApp é registado como um lead qualificado na base de dados.
+- **Marketplace Inteligente**: Pesquisa textual e filtragem por categorias de serviços específicas de Nampula.
+- **Fluxo de Autenticação**: Registo e Login optimizados para números de telefone locais com persistência de sessão segura.
 
-### 🏗️ Arquitetura & Infraestrutura (Fase 1)
-- **Monorepo com Turborepo:** Estruturação do projeto usando pnpm workspaces para gerenciar pacotes, apps frontend e o backend Laravel em um único repositório.
-- **Backend Laravel 12 API:** Inicialização da API central responsável pela regra de negócios (Agnóstico, preparado para cPanel/VPS).
-- **Frontend Ecosystem (Next.js 15):** 
-  - Criação do aplicativo `apps/landing` (Landing Page voltada à conversão e captura de leads).
-  - Criação do aplicativo `apps/admin` (Painel Administrativo para controle de acessos, profissionais e auditoria).
-- **Design System (`@nhonguista/ui`):** Implementação de um pacote compartilhado de UI focado no padrão Shadcn/Radix, garantindo consistência visual entre web, admin e mobile no futuro.
+### 🏗️ Infraestrutura & Backend
+- **Core API (Laravel 12)**: Motor central robusto com suporte a UUIDs em todas as tabelas para máxima segurança e portabilidade.
+- **Arquitetura de Dados**: Implementação de modelos relacionais complexos para Serviços, Categorias, Avaliações e Localizações.
+- **CORS & Segurança**: Configuração multi-origem preparada para alimentar simultaneamente o Marketplace, o Painel Admin e futuras Apps Mobile.
 
-### 🚀 Core MVP & Identidade (Fase 2)
-- **Autenticação Segura:** Integração com **Laravel Sanctum** para autenticação unificada via Tokens de API, cobrindo acessos Mobile e Web.
-- **Modelagem de Dados Inicial:**
-  - Criação das tabelas fundamentais: `users`, `categories` (Serviços/Produtos), `locations` (Bairros de Nampula), `provider_profiles`, `service_requests`, `reviews` e `companies`.
-  - Inserção de dados estáticos (`Seeders`) para Bairros de Nampula (Ex: Muhala, Napipine, Namutequeliua) e um Usuário Admin Base.
-- **Landing Page Mobile-First:**
-  - Reformulação completa da página principal para dispositivos móveis com esquema de cores otimizado para alto contraste.
-  - Inclusão do sistema **WhatsApp-First**: Botões de ação diretos que ligam usuários aos serviços sem atrito.
-  - Integração de UI Premium (`@nhonguista/ui`).
-
-### 🛡️ Validação & Expansão de Confiança (Fase 3)
-- **Otimização para Motores de Busca (SEO):**
-  - Implementação de metadados focados (`layout.tsx`) com palavras-chave estratégicas ("Serviços em Nampula").
-  - Configuração de Open Graph / Twitter Cards para pré-visualizações ricas ao compartilhar links do Nhonguista nas redes sociais.
-- **Sistema de Verificação de Identidade (BI):**
-  - Implementada a arquitetura (Backend) de `Verifications` permitindo que profissionais submetam seus documentos (Bilhete de Identidade / NUIT).
-  - Atualização do modelo `User` para monitorar flags de segurança automáticas: `is_verified` e `verification_status` (pending, approved, rejected).
-- **Notificações Internas:**
-  - Implementação da classe `VerificationStatusUpdated` no Laravel para salvar notificações diretamente no banco de dados, preparando o ecossistema para alertas no App/Web.
-- **Dashboard Administrativo Inicial:**
-  - Construído um layout escalável em `apps/admin/src/app/page.tsx` com navegação lateral (Sidebar) dedicada à moderação de serviços, profissionais e verificações.
-  - Incluídos widgets estáticos de métricas financeiras/operacionais e tabelas de verificações recentes.
-
-### 🏗️ Integração Completa & Marketplace Dinâmico (Actualização)
-- **Multi-Role System**: Implementada a arquitetura que permite um utilizador ser simultaneamente Cliente e Prestador via tabela pivot `user_roles`.
-- **Backend Relacional Robusto**: Modelagem completa de `services`, `reviews`, `categories` (com ícones Lucide) e `contacts` com suporte a UUIDs em todas as tabelas para segurança e escalabilidade.
-- **Lead Tracking System**: Implementado sistema de tracking que regista interacções na base de dados (`contacts`) antes do redireccionamento para o WhatsApp, permitindo auditoria de conversão.
-- **Marketplace Dinâmico (Next.js)**:
-    - **Homepage**: Reconstrução com Hero de alta conversão, pesquisa funcional e secção de serviços em destaque.
-    - **Auth Flow**: Implementado `AuthContext` com persistência de token e páginas de Login/Registo personalizadas.
-    - **Filtros & Navegação**: Sistema de filtragem por categorias e pesquisa textual integrado com a API paginada do Laravel.
-- **Seeders de Produção**: Inclusão de dados realistas de Nampula (Serviços em Mutauanha, Muhala, Centro) para validação do MVP.
+### 🎨 Experiência do Utilizador (UX/UI)
+- **Interface Premium**: Design moderno, mobile-first, com carregamento optimizado e estados de "skeleton loading".
+- **Identidade Visual**: Implementação do sistema de cores de alto contraste optimizado para legibilidade em Nampula.
+- **Localização**: Dados reais de bairros (Mutauanha, Muhala, Namutequeliua) integrados via seeders.
 
 ---
 
-*Estas notas refletem o progresso em direção ao lançamento do beta restrito e os preparativos para o desenvolvimento e acoplamento dos clientes Mobile na próxima fase.*
+### 🔧 Ajustes Técnicos
+- Migração para **Turborepo 2.0+** com gestão de tarefas paralela.
+- Setup de ambiente agnóstico com **SQLite** para desenvolvimento local rápido.
+- Remoção de código legado e boilderplates não utilizados.
+
+---
+*Desenvolvido com ❤️ pelos Irmãos Muacigarro & ZEDECK'S IT.*
