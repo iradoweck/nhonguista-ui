@@ -1,92 +1,99 @@
-# Nhonguista — A arte de vender e prestar
+# 🌟 Nhonguista — A arte de vender e prestar serviços
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Fundação-orange?style=for-the-badge" alt="Status">
-  <img src="https://img.shields.io/badge/Região-Moçambique-black?style=for-the-badge" alt="Região">
-  <img src="https://img.shields.io/badge/Stack-Monorepo-white?style=for-the-badge" alt="Stack">
+  <img src="https://img.shields.io/badge/Status-Fase%_3_Valida%C3%A7%C3%A3o-orange?style=for-the-badge" alt="Status">
+  <img src="https://img.shields.io/badge/Regi%C3%A3o-Nampula%2C%20Mo%C3%A7ambique-black?style=for-the-badge" alt="Região">
+  <img src="https://img.shields.io/badge/Vers%C3%A3o-v0.1.0-blue?style=for-the-badge" alt="Versão">
 </p>
 
 ---
 
-O **Nhonguista** é um ecossistema digital projetado para transformar o mercado de serviços em Moçambique. Focado inicialmente em **Nampula**, a plataforma conecta profissionais talentosos a clientes que buscam confiança, qualidade e agilidade.
+O **Nhonguista** é um ecossistema digital projetado para transformar o mercado de serviços em Moçambique. Focado inicialmente na província de **Nampula**, a plataforma conecta profissionais talentosos a clientes que buscam confiança, qualidade e agilidade através de um fluxo focado na conversão pelo WhatsApp.
 
-> "Valorizando a reputação e impulsionando o crescimento profissional local."
+> *"Valorizando a reputação e impulsionando o crescimento profissional local."*
 
 ---
 
-## 🏗️ Estrutura do Ecossistema
+## 🏗️ Arquitetura do Ecossistema (Open Core)
 
-O projeto utiliza uma arquitetura de **Monorepo** moderna para garantir consistência e velocidade de desenvolvimento.
+Utilizamos a arquitetura de **Monorepo** (via Turborepo) para garantir consistência visual e velocidade de desenvolvimento em todo o ecossistema. O ambiente é preparado para receber contribuições na branch `devlab`.
 
 ```text
 nhonguista/
 ├── apps/
-│   ├── landing/          # Portal institucional e conversão
-│   ├── web/              # Aplicação principal do utilizador
-│   └── admin/            # Gestão central da plataforma
+│   ├── landing/          # Portal institucional (Next.js - Público)
+│   └── admin/            # Painel Administrativo (Next.js - Privado)
 ├── backend/
-│   └── laravel-api/      # O coração: Regras de negócio e dados
+│   └── laravel-api/      # Regras de negócio (Laravel 12 - Privado)
 ├── packages/
-│   ├── ui/               # Design System (Tailwind + Shadcn)
-│   ├── types/            # Tipagens globais TypeScript
-│   └── sdk/              # Cliente de integração centralizado
-└── docs/                 # Base de conhecimento e estratégia
+│   └── ui/               # Design System (Tailwind + Shadcn - Público)
+└── docs/                 # Base de conhecimento e Guias
 ```
 
 ---
 
-## 🛠️ Tech Stack Premium
+## 🛠️ Stack Tecnológico Premium & LTS
 
-| Camada | Tecnologia |
-| :--- | :--- |
-| **Frontend** | Next.js 15, TypeScript, TailwindCSS v3 |
-| **Backend** | Laravel 12, MySQL 8, PHP 8.3 |
-| **Mobile** | Flutter (Brevemente) |
-| **Infra** | Turborepo, pnpm, Docker, GitHub Actions |
+Desenhado para suportar deploys robustos em ambientes Linux tradicionais (**cPanel / VPS**) ou modernas clouds, utilizando versões LTS estáveis para segurança corporativa.
+
+| Camada | Tecnologia Principal | Foco |
+| :--- | :--- | :--- |
+| **Frontend** | **Next.js 15**, React, TypeScript, TailwindCSS v3 | SEO Máximo, Acessibilidade, Mobile-First. |
+| **Backend** | **Laravel 12** (PHP 8.3), Sanctum Auth, MySQL/SQLite | APIs REST, Segurança, Filas e Notificações. |
+| **Design System** | **Shadcn/Radix**, Lucide Icons | UI Consistente e Escalável. |
+| **Infra/Tools** | **Turborepo** (pnpm), Git Flow | Velocidade de Build, Organização Modular. |
 
 ---
 
-## 🚀 Como Iniciar
+## 🚀 Como Iniciar (Ambiente de Desenvolvimento)
+
+Para colaborar ou testar o projeto localmente, confira nosso [Guia de Contribuição (CONTRIBUTING.md)](CONTRIBUTING.md).
 
 ### Pré-requisitos
-Certifique-se de ter instalado:
 - **Node.js** >= 18
 - **pnpm** >= 10
 - **PHP** >= 8.3
 - **Composer** >= 2.x
 
-### Instalação Rápida
+### Quick Start
 ```bash
-# 1. Instalar dependências do Monorepo
+# 1. Instalar pacotes de todo o Monorepo
 pnpm install
 
-# 2. Configurar o Backend
+# 2. Configurar a API Laravel
 cd backend/laravel-api
 composer install
 cp .env.example .env
 php artisan key:generate
-```
+php artisan migrate:fresh --seed
+cd ../../
 
-### Comandos de Desenvolvimento
-```bash
-# Rodar todos os serviços em paralelo
+# 3. Iniciar as plataformas
 pnpm dev
 ```
+- **Landing Page:** [http://localhost:3000](http://localhost:3000)
+- **Admin Dashboard:** [http://localhost:3001](http://localhost:3001)
 
 ---
 
-## 🛡️ Segurança e Governança
-- **Anti-Leak:** `.gitignore` ultra-rigoroso para proteção de segredos.
-- **Git Flow:** Padrões de commit convencionais em Português.
-- **Open Source:** Estratégia clara de separação de módulos comunitários vs proprietários.
+## 🤝 Quer Contribuir?
+
+A comunidade é bem-vinda para ajudar a evoluir a **UI** e a **Landing Page**. 
+Leia nosso [CONTRIBUTING.md](CONTRIBUTING.md) para entender como as PRs funcionam na branch `devlab`, as regras de *Tags*, e nossos Padrões de Commit em Português.
+
+- [Reportar um Bug](../../issues/new?template=bug_report.md)
+- [Sugerir Melhoria](../../issues/new?template=feature_request.md)
 
 ---
 
-## 👥 Equipa e Suporte
+## 👥 Equipa, Suporte e Créditos
+
+Este projeto é visionado e mantido ativamente com dedicação aos talentos de Nampula.
+
 - **Irmãos Muacigarro** (Edmilson & Leoltino) — Fundadores e Liderança Técnica
-- **ZEDECK'S IT** — Desenvolvimento e Suporte Tecnológico
+- **ZEDECK'S IT** — Desenvolvimento Estrutural, Suporte Tecnológico e Integração
 
----
 <p align="center">
-  Desenvolvido pelos <b>Irmãos Muacigarro & ZEDECK'S IT</b>
+  <br>
+  Desenvolvido com 🩵 pelos <b>Irmãos Muacigarro & ZEDECK'S IT</b>
 </p>
