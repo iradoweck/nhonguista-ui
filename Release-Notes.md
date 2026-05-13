@@ -39,6 +39,7 @@ O primeiro grande ciclo de desenvolvimento (Fases 1 a 3) estabeleceu a infraestr
 ### 🔧 Outras Alterações Técnicas Notáveis
 - Transição da configuração `pipeline` para `tasks` no `turbo.json` atendendo às normas do Turborepo 2.0+.
 - Configuração `.env` agnóstica para usar **SQLite** no ambiente local por padrão, simplificando o processo de testes e o setup inicial de novos desenvolvedores sem dependência de Docker.
+- **Limpeza do Monorepo:** Remoção do pacote boilerplate padrão (`apps/web`) para evitar conflitos de portas, estabelecendo o roteamento correto onde a Landing Page assume a porta `:3000` e o Admin Dashboard a porta `:3001` no ambiente de desenvolvimento local.
 
 ---
 
