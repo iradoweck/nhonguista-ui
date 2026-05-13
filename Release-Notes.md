@@ -1,5 +1,22 @@
 # 📓 Notas de Lançamento - Nhonguista
 
+## [1.0.1-alpha] — 13 de Maio de 2026
+> **Foco:** UX Dinâmica, Estatísticas Reais e Refinamento Gramatical.
+
+### 🚀 Experiência "Viva" (UX/UI)
+- **Hero Interativo**: Implementação de efeito *typewriter* no título com concordância gramatical automática (Gênero/Número) e barra de pesquisa com *placeholder* animado.
+- **Live Search Preview**: Sistema de resultados em tempo real (dropdown) integrado na barra de pesquisa da Landing Page.
+- **Impacto Social (Stats)**: Nova secção de métricas reais consumindo dados vivos do banco de dados (Nhonguers, Nhonguistas Pro, Serviços e Tempo no Ar).
+- **FAQ Pro**: Acordeão inteligente em duas colunas com lógica de colapso automático para manter o layout compacto.
+- **Destaques Inteligentes**: Expansão da montra de serviços para 2 linhas, priorizando a diversidade de categorias.
+
+### 🔧 Ajustes & Estabilização
+- **L10n**: Localização completa de datas e meses para Português (PT-MZ).
+- **Backend Cleanup**: Remoção da tabela `system_settings` em favor de marketing-copy no código para máxima performance.
+- **Bug Fix**: Correção de dízimas infinitas no cálculo de tempo e erro de sintaxe no modelo `ProviderProfile`.
+
+---
+
 ## [1.0.0-alpha] — 13 de Maio de 2026
 > **Foco:** Consolidação da Fundação Backend e Marketplace Dinâmico.
 

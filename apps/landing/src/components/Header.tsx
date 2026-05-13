@@ -35,12 +35,6 @@ export function Header() {
                                 {user?.roles[0]?.name || 'Membro'}
                             </span>
                         </div>
-                        <Link 
-                            href="/perfil" 
-                            className="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-zinc-400 hover:bg-orange-50 hover:text-orange-600 transition-colors"
-                        >
-                            <UserIcon className="w-5 h-5" />
-                        </Link>
                         <button 
                             onClick={logout}
                             className="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-zinc-400 hover:bg-red-50 hover:text-red-600 transition-colors"

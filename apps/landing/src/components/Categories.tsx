@@ -37,7 +37,7 @@ export function Categories() {
         <section className="px-6 py-20 max-w-5xl mx-auto w-full">
             <div className="flex items-center justify-between mb-12">
                 <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">Categorias</h2>
-                <Link href="/categorias" className="text-orange-600 font-medium hover:underline">Ver todas</Link>
+                <Link href="/servicos" className="text-orange-600 font-medium hover:underline">Ver todas</Link>
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

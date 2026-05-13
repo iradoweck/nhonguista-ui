@@ -110,6 +110,16 @@ class ServiceSeeder extends Seeder
             // Assign Provider role
             $user->assignRole('provider');
 
+            // Create Provider Profile
+            \App\Models\ProviderProfile::updateOrCreate(
+                ['user_id' => $user->id],
+                [
+                    'bio' => $pData['services'][0]['description'],
+                    'plan' => $pData['name'] === 'António Informática' ? 'pro' : 'free',
+                    'is_verified' => true,
+                ]
+            );
+
             foreach ($pData['services'] as $sData) {
                 $category = Category::where('slug', $sData['category_slug'])->first();
                 $location = $locations->random();

@@ -24,19 +24,47 @@ export function FeaturedServices() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        apiFetch('/services?featured=1&per_page=6')
-            .then(data => setServices(data.data))
+        // Fetch more to ensure we have enough to pick one per category
+        apiFetch('/services?featured=1&per_page=12')
+            .then(data => {
+                const rawServices: Service[] = data.data;
+                // Lógica para pegar um de cada categoria (até 6)
+                const uniqueByCategory: Service[] = [];
+                const seenCategories = new Set();
+                
+                rawServices.forEach(s => {
+                    if (!seenCategories.has(s.category.name) && uniqueByCategory.length < 6) {
+                        uniqueByCategory.push(s);
+                        seenCategories.add(s.category.name);
+                    }
+                });
+
+                // Se não tivermos 6 únicos, preenchemos com os restantes até ter 6
+                if (uniqueByCategory.length < 6) {
+                    rawServices.forEach(s => {
+                        if (!uniqueByCategory.find(u => u.id === s.id) && uniqueByCategory.length < 6) {
+                            uniqueByCategory.push(s);
+                        }
+                    });
+                }
+
+                setServices(uniqueByCategory);
+            })
             .catch(err => console.error(err))
             .finally(() => setLoading(false));
     }, []);
 
     if (loading) {
         return (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-pulse">
-                {[...Array(3)].map((_, i) => (
-                    <div key={i} className="h-[400px] bg-zinc-100 dark:bg-zinc-900 rounded-3xl"></div>
-                ))}
-            </div>
+            <section className="px-6 py-20 bg-zinc-50 dark:bg-zinc-900/50">
+                <div className="max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-pulse">
+                        {[...Array(6)].map((_, i) => (
+                            <div key={i} className="h-[400px] bg-zinc-100 dark:bg-zinc-900 rounded-3xl"></div>
+                        ))}
+                    </div>
+                </div>
+            </section>
         );
     }
 
@@ -48,12 +76,12 @@ export function FeaturedServices() {
                 <div className="flex items-center justify-between mb-12">
                     <div>
                         <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">Nhonguistas em Destaque</h2>
-                        <p className="text-zinc-500 dark:text-zinc-400 mt-2">Os profissionais mais bem avaliados de Nampula.</p>
+                        <p className="text-zinc-500 dark:text-zinc-400 mt-2">Um especialista de cada área, prontos para ajudar você.</p>
                     </div>
-                    <Link href="/servicos" className="text-orange-600 font-medium hover:underline">Ver todos</Link>
+                    <Link href="/servicos" className="text-orange-600 font-medium hover:underline">Ver todos os serviços</Link>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {services.map((service) => (
                         <Link 
                             key={service.id} 
@@ -66,7 +94,7 @@ export function FeaturedServices() {
                                     alt={service.title}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
-                                <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-full text-xs font-bold text-orange-600">
+                                <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 dark:bg-black/80 backdrop-blur-md rounded-full text-[10px] font-black text-orange-600 uppercase tracking-tighter">
                                     {service.category.name}
                                 </div>
                             </div>
@@ -83,15 +111,15 @@ export function FeaturedServices() {
                                                 </div>
                                             )}
                                         </div>
-                                        <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">{service.user.name}</span>
+                                        <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">{service.user.name}</span>
                                     </div>
                                     <div className="flex items-center gap-1 text-orange-500">
-                                        <Star className="w-4 h-4 fill-current" />
-                                        <span className="text-sm font-bold">4.9</span>
+                                        <Star className="w-3 h-3 fill-current" />
+                                        <span className="text-xs font-bold">{(service.average_rating || 5.0).toFixed(1)}</span>
                                     </div>
                                 </div>
 
-                                <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-50 mb-2 group-hover:text-orange-600 transition-colors">
+                                <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-50 mb-2 group-hover:text-orange-600 transition-colors line-clamp-1">
                                     {service.title}
                                 </h3>
                                 
@@ -100,15 +128,12 @@ export function FeaturedServices() {
                                 </p>
 
                                 <div className="flex items-center justify-between pt-4 border-t border-zinc-50 dark:border-zinc-800">
-                                    <div className="flex items-center text-zinc-400 text-xs">
+                                    <div className="flex items-center text-zinc-400 text-[10px] uppercase font-bold tracking-widest">
                                         <MapPin className="w-3 h-3 mr-1" />
                                         {service.location.name}
                                     </div>
-                                    <div className="text-sm">
-                                        <span className="text-zinc-400">A partir de</span>
-                                        <span className="ml-1 font-bold text-zinc-900 dark:text-zinc-50">
-                                            {new Intl.NumberFormat('pt-MZ', { style: 'currency', currency: 'MZN' }).format(Number(service.price_min))}
-                                        </span>
+                                    <div className="text-sm font-black text-zinc-900 dark:text-zinc-50">
+                                        {new Intl.NumberFormat('pt-MZ', { style: 'currency', currency: 'MZN', maximumFractionDigits: 0 }).format(Number(service.price_min))}
                                     </div>
                                 </div>
                             </div>
