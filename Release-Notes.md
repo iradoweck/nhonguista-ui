@@ -1,5 +1,20 @@
 # 📓 Notas de Lançamento - Nhonguista
 
+## [1.0.2-alpha] — 20 de Maio de 2026
+> **Foco:** Reestruturação de Repositório (Git Submodules) e Automação de CI/CD.
+
+### 🏗️ Arquitetura Open Source vs Closed Source
+- **Isolamento de Código**: Extração bem-sucedida do pacote `@nhonguista/ui` (`packages/ui`) para um repositório público independente no GitHub sob a organização `zedecks`.
+- **Destaque Pessoal (Fork)**: Criação de um fork pessoal em `iradoweck/nhonguista-ui` sincronizado para que o desenvolvedor possa destacar a biblioteca no seu perfil.
+- **Integração de Workspace**: O pacote UI foi integrado de volta ao repositório privado `zedecks/nhonguista` como um **Git Submodule** apontando e rastreando ativamente a branch `devlab`.
+
+### ⚙️ Automatizações & Sincronização
+- **Auto-Sync Parent Workflow**: GitHub Action no repositório privado para atualizar automaticamente o ponteiro do submódulo na branch `devlab` ao receber atualizações.
+- **Notify Monorepo Workflow**: GitHub Action no repositório público da UI para disparar um sinal sempre que novos commits forem enviados para a branch `devlab`.
+- **DX local**: Configuração de workspace recomendada para o VS Code atualizar submódulos automaticamente no comando `git pull`.
+
+---
+
 ## [1.0.1-alpha] — 13 de Maio de 2026
 > **Foco:** UX Dinâmica, Estatísticas Reais e Refinamento Gramatical.
 
