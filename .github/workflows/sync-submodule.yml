@@ -1,0 +1,31 @@
+name: Sincronizar Ponteiro da UI
+
+on:
+  repository_dispatch:
+    types: [update_submodule]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Código Privado
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+          ref: devlab
+          submodules: true
+
+      - name: Atualizar Submódulo UI
+        run: |
+          git config --global user.name "Github Actions Bot"
+          git config --global user.email "actions@github.com"
+          
+          # Entrar no submódulo, garantir que está na devlab e atualizar
+          cd packages/ui
+          git checkout devlab
+          git pull origin devlab
+          cd ../..
+          
+          # Registrar as mudanças no repositório pai
+          git add packages/ui
+          git diff-index --quiet HEAD || (git commit -m "chore: atualizar ponteiro da UI para o último commit [auto]" && git push origin devlab)
