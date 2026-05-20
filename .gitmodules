@@ -2,3 +2,11 @@
 	path = packages/ui
 	url = https://github.com/zedecks/nhonguista-ui.git
 	branch = devlab
+[submodule "packages/sdk"]
+	path = packages/sdk
+	url = https://github.com/zedecks/nhonguista-sdk.git
+	branch = devlab
+[submodule "packages/utils"]
+	path = packages/utils
+	url = https://github.com/zedecks/nhonguista-utils.git
+	branch = devlab
