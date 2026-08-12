@@ -5,9 +5,11 @@
 
 ### ✨ Adicionado
 - **Integração na Arquitetura de Agentes**: Adoção do *Versioning Dogma* e injeção do `.agent/AGENTS.md`.
+- **Licenciamento**: Adoção integral da licença de código aberto Apache License 2.0.
 
 ### 🔄 Alterado
 - **Integração de Workspace**: Consolidado no ecossistema raiz como dependência direta local via pnpm.
+- **Documentação**: Criação e configuração do `README.md` refletindo o licenciamento sob Apache License 2.0.
 
 ## [0.0.1] - 20 Mai 2026
 > **Foco:** Extração do Pacote UI e Sincronização CI/CD.
