@@ -7,8 +7,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        primary: {
+          DEFAULT: "var(--color-primary)",
+          light: "var(--color-primary-light)",
+          dark: "var(--color-primary-dark)",
+          foreground: "#FFFFFF",
+        },
+        accent: {
+          DEFAULT: "var(--color-accent)",
+          light: "var(--color-accent-light)",
+          dark: "var(--color-accent-dark)",
+          foreground: "#FFFFFF",
+        },
         nhonguista: {
-          orange: "#FF8C00",
+          orange: "var(--color-accent)",
+          blue: "var(--color-primary)",
           black: "#000000",
           white: "#FFFFFF",
           gray: {
@@ -23,10 +36,6 @@ module.exports = {
             800: "#1F2937",
             900: "#111827",
           }
-        },
-        primary: {
-          DEFAULT: "#FF8C00",
-          foreground: "#FFFFFF",
         }
       },
     },
