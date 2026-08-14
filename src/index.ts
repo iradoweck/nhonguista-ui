@@ -8,3 +8,4 @@ export * from "./components/input";
 export * from "./components/badge";
 export * from "./components/container";
 export * from "./components/avatar";
+export * from "./components/select";
