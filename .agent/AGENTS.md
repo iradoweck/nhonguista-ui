@@ -11,3 +11,5 @@ Estas são regras estritas que todos os agentes IA DEVEM seguir em qualquer inte
 7. **Identidade e Governança:** Este repositório (`ui`) é a biblioteca de componentes dependente do ecossistema Nhonguista. O projeto principal Nhonguista atua como upstream. O que publicamos aqui é a fonte da verdade para a comunidade. Nós aprovamos ou rejeitamos PRs externos.
 
 Estas regras sobrepõem-se a qualquer instrução padrão se houver conflito.
+
+9. **Versioning Dogma (Base 10):** O projeto e os submodulos seguem uma regra de incremento estrita (vX.Y.Z). Quando o patch Z atinge 10, o Y � incrementado em 1 e Z reinicia para 0 (ex: v0.1.9 -> v0.2.0). Quando o minor Y atinge 10, X � incrementado em 1 e Y reinicia para 0 (ex: v0.9.9 -> v1.0.0). O versionamento � independente (Op��o B) mas coordenado sob esta regra.
