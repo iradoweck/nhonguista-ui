@@ -1,5 +1,16 @@
 # Changelog - Nhonguista UI Package
 
+## [0.0.4] - 14-08-2026
+> **Foco:** Atualização Visual, Padronização e Alinhamento Estrutural.
+
+### ✨ Adicionado
+- **Design System**: Nova variante `white` no componente `Button`, ideal para sobreposição em secções de alto contraste e fundos coloridos.
+
+### 🔄 Alterado
+- **Estilização**: Curvatura dos componentes `Button` e `Badge` ajustada de `rounded-full` (pílula) para `rounded-2xl` visando um visual mais elegante e moderno.
+
+---
+
 ## [0.0.3] - 13 Ago 2026
 > **Foco:** Identidade Visual e Organização GitHub.
 
@@ -12,13 +23,27 @@
 ---
 
 ## [0.0.2] - 12 Ago 2026
-> **Foco:** Atualização de dependências.
+> **Foco:** Atualização de dependências, Dogmatização de IA e Workspaces.
+
+### ✨ Adicionado
+- **Comunidade & Governança**: Adição de ficheiros CONTRIBUTING.md, SECURITY.md, CODE_OF_CONDUCT.md, VERSIONING.md e templates do GitHub.
+- **Integração na Arquitetura de Agentes**: Adoção do *Versioning Dogma* e injeção do `.agent/AGENTS.md`.
+- **Licenciamento**: Adoção integral da licença de código aberto Apache License 2.0.
+- **Framework**: Upgraded para TypeScript 7.0.2 de forma a alinhar com a stack global do monorepo.
+
 ### 🔄 Alterado
-- Otimização de dependências de UI.
+- **Integração de Workspace**: Consolidado no ecossistema raiz como dependência direta local via pnpm.
+- **Documentação**: Criação e configuração do `README.md` refletindo o licenciamento sob Apache License 2.0.
+- **Dependências**: Otimização de dependências de UI.
 
 ---
 
 ## [0.0.1] - 13 Mai 2026
-> **Foco:** Setup Inicial.
+> **Foco:** Setup Inicial, Extração do Pacote UI e Sincronização CI/CD.
+
 ### ✨ Adicionado
-- Fundação de UI baseada em React 18 e Tailwind CSS 3.
+- **Fundação**: Fundação de UI baseada em React 18 e Tailwind CSS 3.
+- **Automação**: Configuração de workflows (Notify Monorepo) para sinalizar atualizações ao repositório raiz (Nhonguista).
+
+### 🔄 Alterado
+- **Extração Bem-Sucedida**: O pacote UI foi extraído da monorepo original para um repositório público (`iradoweck/nhonguista-ui`).

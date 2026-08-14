@@ -5,7 +5,7 @@
 <p align="left">
   <img src="https://img.shields.io/badge/Base-Radix%20UI-161618?style=for-the-badge" alt="Radix UI">
   <img src="https://img.shields.io/badge/Estilização-TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss" alt="TailwindCSS">
-  <img src="https://img.shields.io/badge/Licença-Apache%202.0-green?style=for-the-badge" alt="Licença">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/Licen%C3%A7a-Open%20Core%20(Dual)-green?style=for-the-badge" alt="Licença"></a>
 </p>
 
 ## 📖 Sobre o Projeto
@@ -29,8 +29,7 @@ Dentro do monorepo Nhonguista, este pacote já está configurado via workspaces.
 ### Exemplo de Utilização
 
 ```tsx
-import { Button } from "@nhonguista/ui/button"
-import { Card, CardHeader, CardTitle, CardContent } from "@nhonguista/ui/card"
+import { Button, Card, CardHeader, CardTitle, CardContent } from "@nhonguista/ui"
 
 export default function Exemplo() {
   return (
@@ -57,19 +56,24 @@ O Design System não é publicado como um pacote npm compilado (tradicional), ma
 - **Componentes**: Focados em acessibilidade (WAI-ARIA).
 - **Variáveis de Cor**: Temas integrados e pensados para contrastes adequados.
 
-## 🤝 Como Contribuir
+## 🤝 Quer Contribuir?
 
-Quer criar um novo componente ou melhorar a acessibilidade de um existente?
-1. Desenvolva o componente dentro da pasta `src/components`.
-2. Garanta que o componente utiliza as diretrizes do **Tailwind CSS**.
-3. Certifique-se de que é acessível e responsivo.
-4. Documente as propriedades do componente.
-5. Abra um PR!
+A comunidade é bem-vinda para ajudar a evoluir a **UI** e a **Landing Page**. 
+Leia nosso [CONTRIBUTING.md](CONTRIBUTING.md) para entender como as PRs funcionam na branch `devlab`, as regras de *Tags*, e nossos Padrões de Commit em Inglês.
 
-## 📄 Licença
+Por favor, garanta que suas interações seguem nosso [Código de Conduta (CODE_OF_CONDUCT.md)](CODE_OF_CONDUCT.md).
 
-Este pacote é de código aberto e distribuído sob a licença **Apache License 2.0**.  
-Consulte o ficheiro [LICENSE](./LICENSE) para mais detalhes sobre as permissões e limitações.
+- [Reportar um Bug](../../issues/new?template=bug_report.md)
+- [Sugerir Melhoria](../../issues/new?template=feature_request.md)
+
+### 🔒 Política de Segurança
+Pesquisadores de segurança: Se encontrarem vulnerabilidades no nosso Backend ou Painel Administrativo, **NÃO** abram Issues públicas. Confiram nosso arquivo [SECURITY.md](SECURITY.md) para instruções de reporte confidencial.
+
+---
+
+## 👥 Equipa, Suporte e Créditos
+
+Este projeto é visionado e mantido ativamente com dedicação aos talentos de Nampula.
 
 ---
 *Construído com dedicação pela ZEDECK'S IT e a Comunidade Open Source.*
