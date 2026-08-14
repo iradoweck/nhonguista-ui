@@ -5,9 +5,11 @@
 
 ### ✨ Adicionado
 - **Design System**: Nova variante `white` no componente `Button`, ideal para sobreposição em secções de alto contraste e fundos coloridos.
+- **Novos Componentes (Core)**: Criação dos componentes `<Container />`, `<Avatar />`, e `<Badge />`.
+- **Dependências UI**: Adição do pacote `@radix-ui/react-select` como alicerce para o futuro componente de `<Select />`.
 
 ### 🔄 Alterado
-- **Estilização**: Curvatura dos componentes `Button` e `Badge` ajustada de `rounded-full` (pílula) para `rounded-2xl` visando um visual mais elegante e moderno.
+- **Estilização**: Curvatura dos componentes `Button` e `Input` ajustada de `rounded-full` (pílula) para `rounded-2xl` visando um visual mais elegante e moderno, enquanto Avatares mantêm-se estritamente `rounded-full`.
 
 ---
 
