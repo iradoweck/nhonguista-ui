@@ -7,6 +7,7 @@
 - **Comunidade & Governança**: Adição de ficheiros CONTRIBUTING.md, SECURITY.md, CODE_OF_CONDUCT.md, VERSIONING.md e templates do GitHub.
 - **Integração na Arquitetura de Agentes**: Adoção do *Versioning Dogma* e injeção do `.agent/AGENTS.md`.
 - **Licenciamento**: Adoção integral da licença de código aberto Apache License 2.0.
+- **Framework**: Upgraded para TypeScript 7.0.2 de forma a alinhar com a stack global do monorepo.
 
 ### 🔄 Alterado
 - **Integração de Workspace**: Consolidado no ecossistema raiz como dependência direta local via pnpm.
