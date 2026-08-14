@@ -4,8 +4,8 @@ import * as React from "react"
 import { X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { useToast } from "@/hooks/use-toast"
-import type { Toast } from "@/hooks/use-toast"
+import { useToast } from "../hooks/use-toast"
+import type { Toast } from "../hooks/use-toast"
 
 const variantStyles: Record<string, string> = {
   default:
