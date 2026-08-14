@@ -9,7 +9,14 @@
 - **Novos Componentes (Avançados)**: Criação de `<Skeleton />`, `<EmptyState />`, `<Rating />` e `<Gallery />` (com Lightbox modal integrado).
 - **Componente Select**: Implementação completa do `<Select />` baseado em `@radix-ui/react-select` com estilização coerente (`rounded-2xl`, `ring-brand`).
 - **Variante WhatsApp**: Nova `variant="whatsapp"` no componente `<Button />` com a cor verde oficial (#25D366) e efeitos de hover/shadow.
-- **Dependências UI**: Adição dos pacotes `@radix-ui/react-select` e `@radix-ui/react-dialog`.
+- **Dependências UI**: Adição dos pacotes `@radix-ui/react-select`, `@radix-ui/react-dialog`, `@radix-ui/react-toast` e `@radix-ui/react-tooltip`.
+- **Tokens de Espaçamento**: Definição de variáveis CSS de espaçamento (`--spacing-xs` a `--spacing-4xl`) no design system global.
+- **Acessibilidade**: Estados `focus-visible` globais com `ring-brand` aplicados a todos os elementos interactivos (botões, links, inputs, selects).
+- **Novos Componentes (Interacção)**: Criação de `<Dialog />`, `<Toaster />` (com hook `useToast`), `<Tooltip />` e `<Breadcrumb />`.
+  - **Dialog**: Modal acessível com overlay `backdrop-blur`, conteúdo `rounded-2xl` e fecho automático com `X`.
+  - **Toast**: Sistema de notificações no canto inferior direito com auto-dismiss (5s) e variantes `success`, `error`, `warning` e `default`.
+  - **Tooltip**: Balão informativo com fundo escuro, `rounded-lg` e animações de entrada/saída.
+  - **Breadcrumb**: Navegação hierárquica semântica (`nav > ol`) com separador chevron e suporte `asChild`.
 
 ### 🔄 Alterado
 - **Estilização**: Curvatura dos componentes `Button` e `Input` ajustada de `rounded-full` (pílula) para `rounded-2xl` visando um visual mais elegante e moderno, enquanto Avatares mantêm-se estritamente `rounded-full`.
