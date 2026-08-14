@@ -1,15 +1,24 @@
 # Changelog - Nhonguista UI Package
 
 ## [0.0.4] - 14-08-2026
-> **Foco:** Atualização Visual, Padronização e Alinhamento Estrutural.
+> **Foco:** Atualização Visual, Padronização, Alinhamento Estrutural e Expansão da Biblioteca de Primitivas.
 
 ### ✨ Adicionado
 - **Design System**: Nova variante `white` no componente `Button`, ideal para sobreposição em secções de alto contraste e fundos coloridos.
 - **Novos Componentes (Core)**: Criação dos componentes `<Container />`, `<Avatar />`, e `<Badge />`.
-- **Dependências UI**: Adição do pacote `@radix-ui/react-select` como alicerce para o futuro componente de `<Select />`.
+- **Novos Componentes (Avançados)**: Criação de `<Skeleton />`, `<EmptyState />`, `<Rating />` e `<Gallery />` (com Lightbox modal integrado).
+- **Componente Select**: Implementação completa do `<Select />` baseado em `@radix-ui/react-select` com estilização coerente (`rounded-2xl`, `ring-brand`).
+- **Variante WhatsApp**: Nova `variant="whatsapp"` no componente `<Button />` com a cor verde oficial (#25D366) e efeitos de hover/shadow.
+- **Dependências UI**: Adição dos pacotes `@radix-ui/react-select` e `@radix-ui/react-dialog`.
 
 ### 🔄 Alterado
 - **Estilização**: Curvatura dos componentes `Button` e `Input` ajustada de `rounded-full` (pílula) para `rounded-2xl` visando um visual mais elegante e moderno, enquanto Avatares mantêm-se estritamente `rounded-full`.
+
+### 🔧 Detalhes Técnicos
+- **Rating**: Componente híbrido — modo leitura (read-only) por defeito, modo interactivo quando `onValueChange` é fornecido. Suporta meias-estrelas via `clipPath`.
+- **Gallery**: Grelha responsiva com navegação por teclado (←/→), controlos Próximo/Anterior e contador de imagens.
+- **EmptyState**: Aceita `icon`, `title`, `description` e `action` (CTA) para feedback visual amigável em listagens vazias.
+- **Badge Integration**: Substituição das tags manuais de categoria nos cartões de `FeaturedServices` pelo componente `<Badge />` oficial.
 
 ---
 
