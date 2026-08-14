@@ -21,6 +21,9 @@
 ### 🔄 Alterado
 - **Estilização**: Curvatura dos componentes `Button` e `Input` ajustada de `rounded-full` (pílula) para `rounded-2xl` visando um visual mais elegante e moderno, enquanto Avatares mantêm-se estritamente `rounded-full`.
 
+### 🐛 Corrigido
+- **Padding no Button**: Ajustado o padding do tamanho `lg` para utilizar a escala padrão do Tailwind (`px-10`), assegurando que a extração por `@source` funciona corretamente em todos os consumidores do monorepo.
+
 ### 🔧 Detalhes Técnicos
 - **Rating**: Componente híbrido — modo leitura (read-only) por defeito, modo interactivo quando `onValueChange` é fornecido. Suporta meias-estrelas via `clipPath`.
 - **Gallery**: Grelha responsiva com navegação por teclado (←/→), controlos Próximo/Anterior e contador de imagens.
